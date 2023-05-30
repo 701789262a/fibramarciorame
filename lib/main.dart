@@ -83,9 +83,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     'BRUINO',
     'CALUSO',
     'CAMBIANO',
+    'CATANIA',
     'GENOVA',
     'NAPOLI',
+    'MESSINA',
     'PALERMO',
+    'PARMA',
     'SENNORI',
     'TORINO',
     'TREMESTIERI ETNEO'
@@ -220,7 +223,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   }
   Future<void> changeCity(String newCity) async {
     final String response =
-        await rootBundle.loadString('assets/$newCity.json');
+        await rootBundle.loadString('assets/${newCity.replaceAll(" ", "_")}.json');
     final data = await json.decode(response);
 
     _superclusterController.clear();
